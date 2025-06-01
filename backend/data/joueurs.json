@@ -1,0 +1,37 @@
+[
+  {
+    "id": "df1f67b5-b9bc-4125-9813-a9aae39bdc7e",
+    "label": "mael",
+    "equipe": "Équipe A"
+  },
+  {
+    "id": "22b13d57-d999-4b1b-95ef-9a6b2f948360",
+    "label": "wolf",
+    "equipe": "Équipe A"
+  },
+  {
+    "id": "a8c0ff58-64b8-4470-b292-e7434945f5f3",
+    "label": "fabrice",
+    "equipe": "Équipe B"
+  },
+  {
+    "id": "be1e1786-33c0-470a-9aa4-5fa9a23ab25d",
+    "label": "blond",
+    "equipe": "Équipe A"
+  },
+  {
+    "id": "144d3690-b12b-4f8e-9c2e-266b4b6c1fd0",
+    "label": "noir",
+    "equipe": "Équipe B"
+  },
+  {
+    "id": "7fb9f175-fa3a-4d44-b121-0bd8cd0d7465",
+    "label": "miam",
+    "equipe": "Équipe B"
+  },
+  {
+    "id": "1ffc04c6-dd54-4f71-8d8a-953f07576362",
+    "label": "buto",
+    "equipe": "Équipe B"
+  }
+]

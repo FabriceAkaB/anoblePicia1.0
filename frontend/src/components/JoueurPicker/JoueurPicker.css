@@ -1,0 +1,29 @@
+.joueur-picker-wrapper {
+  margin-top: 20px;
+}
+
+.joueur-select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.ajout-joueur-fields input,
+.ajout-joueur-fields select {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.add-joueur-button {
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}

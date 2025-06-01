@@ -2,7 +2,7 @@ import express from "express";
 import errorHandler from "./handlers/error-handler.js";
 import cors from "cors";
 import photoRoutes from "./routes/photo-routes.js";
-
+import joueurRoutes from "./routes/joueur-route.js";
 const app = express();
 
 app.use(cors());
@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/photos", photoRoutes);
+app.use("/api/joueurs", joueurRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Route non trouvée");

@@ -1,0 +1,14 @@
+[
+  {
+    "filename": "match test/joueur/DSC01106.jpg",
+    "wasabiUrl": "https://anoble-packs.s3.ca-central-1.wasabisys.com/match%20test/joueur/DSC01106.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=MKCP959D3V112IY1GK7Y%2F20250601%2Fca-central-1%2Fs3%2Faws4_request&X-Amz-Date=20250601T180646Z&X-Amz-Expires=3600&X-Amz-Signature=bde8f2359da85dd0e2d58f649d1c756a0737eba3c88e2fe3f39ec32a49563a3f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+    "Équipe A": [],
+    "Équipe B": []
+  },
+  {
+    "filename": "match test/joueur/DSC05871.jpg",
+    "wasabiUrl": "https://anoble-packs.s3.ca-central-1.wasabisys.com/match%20test/joueur/DSC05871.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=MKCP959D3V112IY1GK7Y%2F20250601%2Fca-central-1%2Fs3%2Faws4_request&X-Amz-Date=20250601T180646Z&X-Amz-Expires=3600&X-Amz-Signature=cc8a113c57d9960eaf8deec7871c0ab54d08c796da4eab74c4905c0dbd3a65d7&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+    "Équipe A": [],
+    "Équipe B": []
+  }
+]

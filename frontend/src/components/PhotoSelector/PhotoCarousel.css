@@ -72,3 +72,61 @@
 .save-button:hover {
   background-color: #0056b3;
 }
+
+.carousel-title {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 2px 10px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 8px;          /* ⇠ passe du haut au bas */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+
+.carousel-jump {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  z-index: 3;
+}
+
+.carousel-jump input {
+  width: 60px;
+  padding: 2px 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.carousel-jump button {
+  padding: 2px 10px;
+  border: none;
+  background: #2196f3;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.carousel-jump button:hover {
+  background: #1976d2;
+}

@@ -1,8 +1,9 @@
 import { promises as fs } from 'node:fs';   // pour fs.readdir, fs.readFile, …
 import path from 'node:path';               // si tu utilises path.join ou path.parse
-import { ListObjectsV2Command, S3Client } from "@aws-sdk/client-s3";
 import dotenv from 'dotenv';
 dotenv.config(); // à faire tout en haut de ton fichier
+import { ListObjectsV2Command, S3Client } from "@aws-sdk/client-s3";
+import { paginateListObjectsV2 } from "@aws-sdk/client-s3";
 
 const wasabi = new S3Client({
   region: "ca-central-1",
@@ -15,20 +16,33 @@ const wasabi = new S3Client({
 });
 
 export const listPhotosFromMatch = async (matchName) => {
+  console.log("DEBUG bucket =", process.env.WASABI_BUCKET);
   const bucket = process.env.WASABI_BUCKET;
+  const keys = [];
 
-  const command = new ListObjectsV2Command({
-    Bucket: bucket,
-    Prefix: `${matchName}/`,
-  });
+  // ---------- paginator prend en charge la boucle "ContinuationToken" ----------
+  const paginator = paginateListObjectsV2(
+    {                                   // ← config du paginator
+      client: wasabi,
+      pageSize: 1000,
+    },
+    {                                   // ← VRAI input S3
+      Bucket: bucket,
+      Prefix: `${matchName}/`,
+    }
+  );
 
-  const response = await wasabi.send(command);
+  // ---------- on itère sur chaque page ----------
+  for await (const page of paginator) {
+    if (!page.Contents) continue;
+    keys.push(
+      ...page.Contents
+        .map((o) => o.Key)
+        .filter((k) => k.match(/\.(jpg|jpeg|png)$/i)) // garde les images
+    );
+  }
 
-  if (!response.Contents) return [];
-
-  return response.Contents
-    .map((obj) => obj.Key)
-    .filter((key) => key.match(/\.(jpg|jpeg|png)$/i)); // garde seulement les images
+  return keys;                  // contiendra 3 000+ clés
 };
 
 // Exemple de log plus bavard
