@@ -1,0 +1,19 @@
+#soulignementDynamique {
+  position: relative; /* Définit un contexte pour le pseudo-élément */
+  display: inline-block; /* Assure que le lien est traité comme un bloc pour éviter les débordements */
+}
+
+#soulignementDynamique::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #111;
+  transition: width 0.3s ease;
+}
+
+#soulignementDynamique:hover::after {
+  width: 100%; /* Étend la ligne sous le lien */
+}
