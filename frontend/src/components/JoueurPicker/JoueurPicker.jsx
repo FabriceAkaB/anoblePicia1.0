@@ -85,12 +85,6 @@ const JoueurPicker = ({ joueurs = [], déjàChoisis = [], onAdd, équipes = [] }
             </option>
           ))}
         </select>
-        <input
-          type="text"
-          placeholder="Ou créer une nouvelle équipe"
-          value={nouvelleEquipe}
-          onChange={(e) => setNouvelleEquipe(e.target.value)}
-        />
       </div>
 
       <button onClick={handleAdd} className="add-joueur-button">

@@ -37,44 +37,43 @@ const PhotoCarousel = ({
       prev.includes(id) ? prev.filter((j) => j !== id) : [...prev, id]
     );
   };
-
-  useEffect(() => {
+useEffect(() => {
   function handleKey(e) {
     if (!photos.length) return;
 
-    /* navigation ---------------------------------- */
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      next();
-    }
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      prev();
-    }
+    // navigation
+    if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+    if (e.key === "ArrowLeft")  { e.preventDefault(); prev(); }
 
-    /* copier tous les joueurs de la photo précédente */
+    // copie depuis la photo précédente
     if (e.key.toLowerCase() === "z") {
       const prevIndex = index > 0 ? index - 1 : photos.length - 1;
       onCopyPrevious?.(photos[prevIndex]);
+      return;                       // on arrête ici
     }
 
-    /* raccourcis 0-9  -------------------------------- */
+    // raccourcis 0-9 / Shift+0-9
     if (e.code.startsWith("Digit")) {
-      const digit = Number(e.code.slice(5));     // "Digit7" -> 7
-      const num   = digit === 0 ? 9 : digit - 1; // 0→9, 1→0, 2→1 …
+      const digit = Number(e.code.slice(5));          // 0-9
+      const idx   = digit === 0 ? 9 : digit - 1;      // 1→0, … 0→9
 
-      const joueur = joueurs[num];
-      if (!joueur) return;                       // pas assez de joueurs
+      const joueursA = joueurs.filter((j) => j.equipe === "Équipe A");
+      const joueursB = joueurs.filter((j) => j.equipe === "Équipe B");
+      const source   = e.shiftKey ? joueursB : joueursA;
 
-      const equipe = e.shiftKey ? "Équipe B" : "Équipe A";
-      onShortcutAdd?.({ ...joueur, equipe });
+      const joueur = source[idx];                     // peut être undefined
+      if (!joueur) return;
+
+      onShortcutAdd?.({
+        ...joueur,
+        equipe: e.shiftKey ? "Équipe B" : "Équipe A",
+      });
     }
   }
 
   window.addEventListener("keydown", handleKey);
   return () => window.removeEventListener("keydown", handleKey);
 }, [index, photos, joueurs, onCopyPrevious, onShortcutAdd]);
-
 
   const handleCopyPrev = () => {
     if (!photos.length) return;
